@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+    background: cornsilk;
+}
+
+.container {
+    position: relative;
+}
+
+.card {
+    position: relative;
+    width: 320px;
+    height: 450px;
+    background: #dddddd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #771722;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.card:hover::before {
+    clip-path: circle(300px at 80% -20%);
+}
+
+.image-pic {
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%) rotate(25deg);
+    height: 152px;
+}
+
+.card::after {
+    content: "New Balance";
+    position: absolute;
+    top: 10%;
+    left: 8%;
+    font-size: 3em;
+    font-weight: 800;
+    font-style: inherit;
+    color: #236a9d;
+    opacity: 0.4;
+}
+
+.image {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 100%;
+    height: 220px;
+    transition: 0.5s;
+}
+
+.card:hover .image {
+    top: 0%;
+    transform: translateY(0%);
+}
+
+.content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 0.5s;
+    z-index: 5;
+}
+
+.container .card:hover .content {
+    height: 210px;
+}
+
+.content h2 {
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #312a2a;
+}
+
+.size,
+.color {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.card:hover .content .size,
+.card:hover .content .color {
+    opacity: 1;
+    visibility: visible;
+}
+
+.size h3,
+.color h3 {
+    color: #312a2a;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2;
+    margin-right: 10px;
+}
+
+.size span {
+    width: 26px;
+    height: 26px;
+    text-align: center;
+    line-height: 26px;
+    font-size: 14px;
+    display: inline-block;
+    color: #312a2a;
+    background: #fff;
+    margin: 0 5px;
+    transition: 0.5s;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.size span:hover {
+    background: #77172257;
+}
+
+.color span {
+    width: 20px;
+    height: 20px;
+    background: rgb(163, 163, 89);
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.color span:nth-child(2) {
+    background: rgb(36, 76, 122);
+}
+
+.color span:nth-child(3) {
+    background: rgb(128, 81, 38);
+}
+
+.color span:nth-child(4) {
+    background: rgb(94, 31, 31);
+}
+
+.content a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 4px;
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #111;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 0.5s;
+}
+
+a:hover {
+    background: #77172257;
+}
+
+.card:hover .content a {
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: 0.5s;
+}
